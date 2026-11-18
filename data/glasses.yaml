@@ -1,0 +1,248 @@
+# AI 스마트안경 모델별 식별 정보
+#
+# 값의 원칙
+# - 모든 값은 sources 의 공개 자료에서 왔다. 실기기로 측정한 값은 없다.
+# - 모르는 값은 null 로 둔다. 추정으로 채우지 않는다.
+# - ble.detectable: 제조사 ID 로 식별 가능한가 (ble-company-ids.yaml 기준)
+#     yes     안경 전용 ID 가 SIG 에 등록돼 있다
+#     partial ID 는 있으나 같은 회사 폰·이어폰과 겹친다
+#     no      SIG 목록에 업체가 없다
+#   실제로 광고 패킷에 그 ID 를 싣는지는 모델마다 다를 수 있다(실측 전).
+# - kr_sales: official(국내 정식 판매) | import(직구·구매대행으로만) | unknown
+#
+# 확인일: 2026-11-18
+
+models:
+  - id: ray-ban-meta-gen2
+    name: Ray-Ban Meta (Gen 2)
+    maker: Meta × EssilorLuxottica
+    camera: {present: true, spec: 12MP}
+    display: null          # 화면 없음. 답은 스피커(음성)로 받는다
+    audio: true
+    weight_g: null
+    price: "US$379부터, 국내 69만 원부터"
+    kr_sales: official
+    kr_note: 2026-05-25 국내 정식 출시. 7월부터 이통 3사 판매
+    ble: {ids: [0x01AB, 0x058E, 0x0D53], detectable: "yes"}
+    tells:
+      - 테 앞쪽 모서리의 작은 카메라 구멍과 촬영 표시등
+      - 일반 레이밴보다 두꺼운 안경다리
+      - 안경다리 안쪽·테의 로고
+    exam_risk: 화면이 없어 답을 귀로 듣는다. 귀 쪽 스피커 소리, 안경다리를 자주 만지는 행동이 단서
+    sources:
+      - https://about.fb.com/ko/news/2026/05/meta-wearables-launch-in-korea/
+      - https://mobile.newsis.com/view/NISX20260519_0003635283
+      - https://www.ddaily.co.kr/page/view/2026070618161755548
+      - https://www.theshortcut.com/p/meta-ray-ban-display-price-release-date
+      - https://www.helpnetsecurity.com/2026/02/27/nearby-glasses-android-app-detect-smart-glasses/
+
+  - id: meta-ray-ban-display
+    name: Meta Ray-Ban Display
+    maker: Meta × EssilorLuxottica
+    camera: {present: true, spec: 12MP 초광각}
+    display: {type: 단안(오른쪽 렌즈) 컬러 HUD, spec: "600×600, 20도 시야각"}
+    audio: true
+    weight_g: 69
+    price: "US$799 (손목 밴드 포함)"
+    kr_sales: unknown
+    ble: {ids: [0x01AB, 0x058E, 0x0D53], detectable: "yes"}
+    tells:
+      - 손목의 Meta Neural Band(근전도 밴드)로 조작한다. 손목 밴드가 단서
+      - 오른쪽 렌즈에 화면이 있어 각도에 따라 렌즈 속 빛·반사가 보일 수 있다
+      - 일반 레이밴보다 두껍고 무겁다(69g)
+    exam_risk: 화면에 답이 바로 뜬다. 손가락 움직임만으로 조작할 수 있다
+    sources:
+      - https://roadtovr.com/meta-ray-ban-smart-glasses-display-price-release-date-specs/
+      - https://www.tomsguide.com/computing/smart-glasses/meta-ray-ban-display-glasses-features-neural-link-price-and-availability
+      - https://www.theshortcut.com/p/meta-ray-ban-display-price-release-date
+
+  - id: oakley-meta
+    name: Oakley Meta (HSTN·Vanguard)
+    maker: Meta × EssilorLuxottica
+    camera: {present: true, spec: null}
+    display: null
+    audio: true
+    weight_g: null
+    price: null
+    kr_sales: official
+    kr_note: 레이밴 메타와 함께 2026-05-25 국내 정식 출시
+    ble: {ids: [0x01AB, 0x058E, 0x0D53], detectable: "yes"}
+    tells:
+      - 스포츠 고글형 테. 카메라 위치는 모델마다 다르다(확인 전)
+    exam_risk: 레이밴 메타와 같은 음성 방식
+    sources:
+      - https://about.fb.com/ko/news/2026/05/meta-wearables-launch-in-korea/
+      - https://www.venturesquare.net/1096209/
+
+  - id: rokid-glasses
+    name: Rokid Glasses (화면 있는 모델)
+    maker: Rokid
+    camera: {present: true, spec: "12MP, Sony IMX681"}
+    display: {type: 양안 단색(녹색) 마이크로 LED 웨이브가이드, spec: "480×398, 23도 시야각"}
+    audio: true
+    weight_g: 49
+    price: "US$599"
+    kr_sales: unknown
+    ble: {ids: [], detectable: "no"}
+    tells:
+      - 렌즈 속 웨이브가이드 때문에 각도에 따라 렌즈 색이 달라 보인다
+      - 렌즈 옆 소형 카메라
+    exam_risk: 유튜버 테크몽이 세무사 1차 기출을 만점으로 푼 실험에 쓴 계열. 기본 AI 대신 별도 앱으로 외부 AI(Gemini·Claude)를 연결했다
+    sources:
+      - https://www.notebookcheck.net/Rokid-Glasses-are-lightweight-AR-smart-glasses-with-Micro-LED-displays-and-a-499-price-tag.1098756.0.html
+      - https://vrarwiki.com/wiki/Rokid_Glasses
+      - https://www.asiatoday.co.kr/kn/view.php?key=20261113010005247
+      - https://biz.heraldcorp.com/article/10937462
+
+  - id: rokid-ai-glasses-style
+    name: Rokid AI Glasses Style (화면 없는 모델)
+    maker: Rokid
+    camera: {present: true, spec: 12MP}
+    display: null
+    audio: true
+    weight_g: 38.5
+    weight_note: 렌즈 제외 무게. 리뷰 실측 45g
+    price: "US$299부터 (2026-01 글로벌 출시)"
+    kr_sales: unknown
+    ble: {ids: [], detectable: "no"}
+    tells:
+      - 렌즈 옆 소형 카메라
+    exam_risk: 화면 없이 음성으로 답을 듣는 방식
+    sources:
+      - https://www.notebookcheck.net/Rokid-AI-Glasses-Style-go-global-as-299-screenless-AI-smart-glasses.1209029.0.html
+      - https://www.wareable.com/wearable-tech/rokid-ai-glasses-style-officially-available-launch-global
+
+  - id: xiaomi-ai-glasses
+    name: Xiaomi AI Glasses
+    maker: Xiaomi
+    camera: {present: true, spec: "12MP, Sony IMX681, 2K 30fps"}
+    display: null
+    audio: true
+    weight_g: null
+    price: "1,999위안"
+    kr_sales: import
+    kr_note: 중국 내수 판매. 국내는 직구로만 구할 수 있다
+    ble: {ids: [0x038F], detectable: "partial"}
+    tells:
+      - 렌즈 옆 소형 카메라
+    exam_risk: 샤오미 폰·이어폰과 ID 가 같아 제조사 ID 로는 구분이 어렵다
+    sources:
+      - https://petapixel.com/2025/06/27/xiaomi-unveils-smart-glasses-to-rival-ray-ban-meta/
+      - https://www.digitalcameraworld.com/optics/more-companies-are-betting-that-ai-camera-glasses-are-the-future-as-xiaomi-launches-its-own-pair
+
+  - id: quark-s1
+    name: Alibaba Quark AI Glasses S1
+    maker: Alibaba
+    camera: {present: null, spec: null}
+    display: {type: 양안 단색(녹색) 마이크로 LED 웨이브가이드, spec: null}
+    audio: true
+    weight_g: null
+    price: "3,799위안"
+    kr_sales: import
+    ble: {ids: [0x0EC5], detectable: "partial"}
+    tells:
+      - 렌즈 속 웨이브가이드 반사
+    exam_risk: 화면에 답이 뜰 수 있는 모델. 카메라 사양은 교차 확인 전
+    sources:
+      - https://www.scmp.com/tech/big-tech/article/3334399/alibaba-launches-us537-quark-ai-glasses-challenge-wearables-meta-xiaomi-rokid
+
+  - id: rayneo-x3-pro
+    name: RayNeo X3 Pro
+    maker: TCL RayNeo
+    camera: {present: true, spec: "12MP (코받침 아래) + AR용 보조 카메라"}
+    display: {type: 양안 AR 화면, spec: null}
+    audio: true
+    weight_g: null
+    price: "US$1,099 (얼리버드)"
+    kr_sales: unknown
+    ble: {ids: [0x0BC6], detectable: "partial"}
+    tells:
+      - 코받침 아래 카메라
+      - 일반 안경보다 눈에 띄게 두꺼운 테
+    exam_risk: 카메라 연속 사용 시 배터리가 약 30분이라는 리뷰가 있다
+    sources:
+      - https://www.tomshardware.com/peripherals/wearable-tech/rayneo-x3-pro-ar-glasses-review
+      - https://www.tomsguide.com/computing/smart-glasses/tcl-rayneo-x3-pro-review
+
+  - id: even-realities-g2
+    name: Even Realities G2
+    maker: Even Realities
+    camera: {present: false}
+    display: {type: 양안 단색 HUD, spec: "1,200nit"}
+    audio: false
+    weight_g: 36
+    price: "US$599"
+    kr_sales: unknown
+    ble: {ids: [0x10F9], detectable: "yes"}
+    tells:
+      - 카메라가 없어 겉으로는 일반 안경과 거의 같다
+      - 함께 쓰는 R1 스마트 링(반지)으로 조작할 수 있다
+    exam_risk: 스스로 문제를 찍지는 못하지만, 다른 경로로 받은 답을 화면에 띄울 수는 있다
+    sources:
+      - https://techcrunch.com/2026/07/11/smart-glasses-without-a-camera-even-realities-bets-productivity-beats-recording-everyone/
+      - https://www.bgr.com/2024472/even-g2-display-smart-glasses-r1-ring/
+      - https://heise.de/-11076939
+
+  - id: even-realities-g1
+    name: Even Realities G1
+    maker: Even Realities
+    camera: {present: false}
+    display: {type: 양안 단색 HUD, spec: null}
+    audio: false
+    weight_g: null
+    price: null
+    kr_sales: unknown
+    ble: {ids: [0x10F9], detectable: "yes"}
+    tells:
+      - G2 와 같이 카메라 없음
+    exam_risk: G2 와 같다
+    sources:
+      - https://heise.de/-11076939
+
+  - id: xreal-one-pro
+    name: XREAL One Pro
+    maker: XREAL
+    camera: {present: false, spec: "별매 Eye 카메라 모듈을 달면 있음"}
+    display: {type: 영상 출력용 디스플레이 안경, spec: null}
+    audio: true
+    weight_g: null
+    price: "US$599"
+    kr_sales: unknown
+    ble: {ids: [], detectable: "no"}
+    tells:
+      - 폰과 케이블로 연결하는 방식. 안경다리 끝의 케이블이 단서
+      - 선글라스처럼 짙은 렌즈
+    exam_risk: 유선 연결이라 전파 탐지로는 잡기 어렵다. 대신 케이블과 큰 테가 눈에 띈다
+    sources:
+      - https://dymesty.com/blogs/articles/smart-glasses-comparison-chart-2026
+
+  - id: brilliant-labs-halo
+    name: Brilliant Labs Halo
+    maker: Brilliant Labs
+    camera: {present: true, spec: null}
+    display: {type: 컬러 화면, spec: null}
+    audio: null
+    weight_g: 40
+    price: "US$300–349"
+    kr_sales: unknown
+    ble: {ids: [], detectable: "no"}
+    tells: []
+    exam_risk: 오픈소스 개발 지향 제품이라 앱을 직접 만들어 붙이기 쉽다
+    sources:
+      - https://dymesty.com/blogs/articles/smart-glasses-comparison-chart-2026
+
+  - id: snap-specs
+    name: Snap Specs (2026)
+    maker: Snap
+    camera: {present: true, spec: "AR 추적용, 구체 사양 확인 전"}
+    display: {type: 웨이브가이드 AR, spec: "51도 시야각"}
+    audio: null
+    weight_g: null
+    price: "US$2,195"
+    kr_sales: unknown
+    ble: {ids: [0x03C2], detectable: "yes"}
+    tells:
+      - 두꺼운 AR 안경 형태라 일반 안경과 구분된다
+    exam_risk: 가격과 크기 때문에 시험장 사용 가능성은 낮다
+    sources:
+      - https://dymesty.com/blogs/articles/smart-glasses-comparison-chart-2026

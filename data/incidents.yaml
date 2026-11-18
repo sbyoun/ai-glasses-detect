@@ -1,0 +1,72 @@
+# AI 기기 시험 부정행위 공개 보도 기록
+# 보도된 내용만 적는다. 수사 중인 사건은 바뀔 수 있다.
+# device: glasses(스마트안경) | camera-relay(초소형 카메라·중계) | other
+# 확인일: 2026-11-18
+
+incidents:
+  - date: 2026-05
+    country: KR
+    exam: 정보처리기사·전기산업기사(국가기술자격)
+    device: glasses
+    detected_by: 감독관 현장 적발
+    summary: 서울·목포 등에서 AI 안경 착용 응시자 적발
+    sources:
+      - https://www.segye.com/newsView/20260715508698
+
+  - date: 2026-06
+    country: KR
+    exam: 토익
+    device: glasses
+    detected_by: 현장 적발
+    summary: 국내 토익에서 AI 글라스 커닝 시도 첫 적발
+    sources:
+      - https://www.hankyung.com/article/202606107661Y
+      - https://v.daum.net/v/20260610000935317
+
+  - date: 2026-06
+    country: KR
+    exam: 가스기능사(국가기술자격)
+    device: glasses
+    detected_by: 현장 적발
+    summary: 대구·울산 시험장에서 AI 안경 착용 확인
+    sources:
+      - https://www.segye.com/newsView/20260715508698
+
+  - date: 2026-07
+    country: KR
+    exam: 국가기술자격시험(광주)
+    device: glasses
+    detected_by: 감독관이 시선 처리를 이상하게 여김
+    summary: 안경테 카메라로 문제를 찍어 AI 로 보내고 렌즈 화면에 답을 띄운 방식. 국가기술자격법 위반 약식기소, AI 안경 부정행위 첫 사법 처리
+    sources:
+      - https://m.seoul.co.kr/news/2026/07/13/20260713500273
+      - https://www.segye.com/newsView/20260713523220
+
+  - date: 2026-11
+    country: KR
+    exam: 제63회 세무사 1·2차
+    device: camera-relay
+    detected_by: 현장·채점에서 못 잡음. 고득점 의혹 뒤 본인 자수
+    summary: 반입 허용 계산기를 개조하고 초소형 카메라로 문제를 찍어 생성형 AI 로 보낸 뒤 초소형 모니터로 답을 확인했다고 진술. 1차 397.5/400. 해당 교실에 CCTV 없음. 안경은 쓰지 않았다
+    sources:
+      - https://www.hankookilbo.com/news/article/A2026111713030003155
+      - https://m.news.nate.com/view/20261118n01399
+      - https://www.fnnews.com/news/202611151602112780
+      - https://imnews.imbc.com/replay/2026/nwdesk/article/6865805_37004.html
+
+  - date: 2026
+    country: TW
+    exam: 대만 분과측험(Advanced Subjects Test)
+    device: glasses
+    detected_by: 처음 도입한 금속탐지
+    summary: 학생이 부인했으나 금속탐지기로 AI 안경임을 확인
+    sources:
+      - https://www.taiwannews.com.tw/en/news/6400781
+
+stats:
+  - text: 2026년 국가자격시험 스마트안경 부정행위 5건 (한국산업인력공단 자료)
+    sources:
+      - https://www.koreatimes.co.kr/southkorea/education/20261114/lawmaker-seeks-49-mil-budget-to-detect-ai-smart-glasses-cheating
+  - text: 제63회 세무사 1차 회계학개론 90점 이상 득점자 전년 2명 → 66명
+    sources:
+      - https://m.news.nate.com/view/20261118n01463
