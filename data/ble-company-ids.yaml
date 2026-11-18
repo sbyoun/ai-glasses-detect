@@ -1,0 +1,65 @@
+# 블루투스 SIG 제조사 ID (Company Identifier) 중 스마트안경 업체
+#
+# 1차 출처: Bluetooth SIG assigned numbers, company_identifiers.yaml
+#   https://bitbucket.org/bluetooth-SIG/public/src/main/assigned_numbers/company_identifiers/company_identifiers.yaml
+# 확인일: 2026-11-18
+#
+# glasses_only: 이 ID 를 쓰는 기기가 사실상 안경·헤드셋뿐인가
+#   true  → 이 ID 가 잡히면 안경일 가능성이 높다
+#   false → 같은 회사의 폰·이어폰·워치도 같은 ID 를 써서 오탐이 많다
+#
+# 주의: 제조사 ID 는 BLE 광고 패킷의 Manufacturer Specific Data 에 실린다.
+# 기기가 광고를 하지 않거나(이미 폰과 연결된 상태 등) 이 필드를 비우면 안 잡힌다.
+# 아래 표는 "ID 가 존재한다"는 뜻이지, 우리가 실기기로 잡아 본 결과가 아니다.
+
+retrieved: 2026-11-18
+source: https://bitbucket.org/bluetooth-SIG/public/src/main/assigned_numbers/company_identifiers/company_identifiers.yaml
+
+ids:
+  - id: 0x01AB
+    name: Meta Platforms, Inc.
+    glasses_only: true
+    note: Quest 헤드셋도 쓴다. 시험장에 헤드셋을 들고 올 일은 없으니 사실상 안경 신호로 본다
+  - id: 0x058E
+    name: Meta Platforms Technologies, LLC
+    glasses_only: true
+  - id: 0x0D53
+    name: Luxottica Group S.p.A
+    glasses_only: true
+    note: 레이밴·오클리 제조사
+  - id: 0x10F9
+    name: Even Realities Ltd.
+    glasses_only: true
+  - id: 0x060C
+    name: Vuzix Corporation
+    glasses_only: true
+  - id: 0x03C2
+    name: Snapchat Inc
+    glasses_only: true
+  - id: 0x038F
+    name: Xiaomi Inc.
+    glasses_only: false
+  - id: 0x0BC6
+    name: TCL COMMUNICATION EQUIPMENT CO.,LTD.
+    glasses_only: false
+    note: RayNeo 는 TCL 계열
+  - id: 0x0EC5
+    name: Alibaba (China) Co., Ltd.
+    glasses_only: false
+    note: Quark 안경이 이 ID 를 쓰는지는 확인 안 됨
+  - id: 0x027D
+    name: HUAWEI Technologies Co., Ltd.
+    glasses_only: false
+  - id: 0x0075
+    name: Samsung Electronics Co. Ltd.
+    glasses_only: false
+  - id: 0x018E
+    name: Google LLC
+    glasses_only: false
+
+# SIG 목록에서 찾지 못한 업체 (2026-11-18, 이름 검색 기준)
+# 이 업체 안경은 제조사 ID 방식으로는 식별할 수 없다.
+not_registered:
+  - Rokid
+  - XREAL (구 Nreal)
+  - Brilliant Labs
