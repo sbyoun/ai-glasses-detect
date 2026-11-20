@@ -152,6 +152,7 @@ def build():
 <li><b>블루투스 제조사 ID 로 못 잡는 안경이 있습니다.</b> {e(nreg)} 은 블루투스 SIG 제조사 ID 목록에 업체가 없습니다(2026-11-18 확인). 유튜버 실험으로 화제가 된 Rokid 가 여기에 속합니다. → <a href="/ble-ids/">ID 표</a></li>
 <li><b>카메라 없는 화면 안경</b>(Even Realities)은 겉모습이 일반 안경과 거의 같습니다.</li>
 <li><b>안경만의 문제가 아닙니다.</b> 제63회 세무사 수석 합격자는 안경 없이 개조한 계산기와 초소형 카메라·모니터를 썼다고 진술했습니다. → <a href="/incidents/">적발 사례</a></li>
+<li><b>2027학년도 수능에서 전자기기 부정행위 111건이 적발됐습니다</b>(교육부 2026-11-20 발표). 시험 중 실제 사용은 5건이고 그중 스마트안경은 1건입니다. → <a href="/incidents/">적발 사례</a></li>
 <li>한 가지 방법으로는 다 잡지 못합니다. 방법별로 잡는 것과 못 잡는 것을 정리했습니다. → <a href="/methods/">탐지 방법</a></li>
 </ul>
 <h2>모델별 요약</h2>
@@ -161,7 +162,7 @@ def build():
                         "레이밴 메타·Rokid·샤오미 등 AI 안경 13종의 카메라·화면·블루투스 제조사 ID 식별 가능 여부와 국내 시험 적발 사례. 공개 자료 기반, CC BY 4.0.", body,
                         {"@context": "https://schema.org", "@type": "Dataset", "name": "AI 스마트안경 식별 데이터베이스",
                          "description": "시험장 감독관용 AI 안경 식별 정보", "license": "https://creativecommons.org/licenses/by/4.0/",
-                         "url": BASE + "/", "dateModified": "2026-11-18"}))
+                         "url": BASE + "/", "dateModified": "2026-11-20"}))
 
     # 블루투스 ID
     trs = "".join(f"<tr><td><code>{hexid(x['id'])}</code></td><td>{e(x['name'])}</td><td>{'안경·헤드셋 위주' if x['glasses_only'] else '<span class=n>폰·이어폰과 공유</span>'}</td><td>{e(x.get('note') or '')}</td></tr>" for x in ble["ids"])
@@ -191,18 +192,18 @@ def build():
                      "육안·블루투스 제조사 ID·코리요스캔 기준선 스캔·전파탐지기·금속탐지·광학 분석·사후 점수 분석이 각각 잡는 것과 못 잡는 것.", body))
 
     # 적발 사례
-    trs = "".join(f"<tr><td>{e(x['date'])}</td><td>{e(x['country'])}</td><td>{e(x['exam'])}</td><td>{ {'glasses':'스마트안경','camera-relay':'초소형 카메라·중계'}.get(x['device'], e(x['device'])) }</td><td>{e(x['detected_by'])}</td><td>{e(x['summary'])}<br><span class='mute'>{' · '.join(f'<a href={chr(34)}{e(u)}{chr(34)}>출처{i+1}</a>' for i, u in enumerate(x['sources']))}</span></td></tr>" for x in inc["incidents"])
+    trs = "".join(f"<tr><td>{e(x['date'])}</td><td>{e(x['country'])}</td><td>{e(x['exam'])}</td><td>{ {'glasses':'스마트안경','camera-relay':'초소형 카메라·중계','mixed':'스마트안경·카메라·스마트폰 등'}.get(x['device'], e(x['device'])) }</td><td>{e(x['detected_by'])}</td><td>{e(x['summary'])}<br><span class='mute'>{' · '.join(f'<a href={chr(34)}{e(u)}{chr(34)}>출처{i+1}</a>' for i, u in enumerate(x['sources']))}</span></td></tr>" for x in inc["incidents"])
     stats = "".join(f"<li>{e(s['text'])} (<a href='{e(s['sources'][0])}'>출처</a>)</li>" for s in inc["stats"])
     body = f"""<h1>AI 기기 시험 부정행위 적발 사례</h1>
 <p class="lead">공개 보도로 확인한 사례만 적었습니다. 수사 중인 사건은 내용이 바뀔 수 있습니다.</p>
 <div class="tw"><table><tr><th>시기</th><th>국가</th><th>시험</th><th>기기</th><th>적발 경위</th><th>내용</th></tr>{trs}</table></div>
 <h2>통계</h2><ul>{stats}</ul>"""
     urls.append(page("/incidents/", "AI 안경·AI 커닝 시험 적발 사례 정리(2026) · AI 안경 식별 DB",
-                     "토익·국가기술자격·세무사 시험의 AI 안경·초소형 카메라 부정행위 적발 사례와 적발 경위.", body))
+                     "수능·토익·국가기술자격·세무사 시험의 AI 안경·초소형 카메라 부정행위 적발 사례와 적발 경위.", body))
 
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     (OUT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-                                     + "".join(f"<url><loc>{u}</loc><lastmod>2026-11-18</lastmod></url>\n" for u in urls) + "</urlset>\n")
+                                     + "".join(f"<url><loc>{u}</loc><lastmod>2026-11-20</lastmod></url>\n" for u in urls) + "</urlset>\n")
     print(f"{len(urls)} pages → {OUT}")
 
 
