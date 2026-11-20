@@ -1,7 +1,7 @@
 # AI 기기 시험 부정행위 공개 보도 기록
 # 보도된 내용만 적는다. 수사 중인 사건은 바뀔 수 있다.
-# device: glasses(스마트안경) | camera-relay(초소형 카메라·중계) | other
-# 확인일: 2026-11-18
+# device: glasses(스마트안경) | camera-relay(초소형 카메라·중계) | mixed(여러 기기) | other
+# 확인일: 2026-11-20
 
 incidents:
   - date: 2026-05
@@ -54,6 +54,18 @@ incidents:
       - https://www.fnnews.com/news/202611151602112780
       - https://imnews.imbc.com/replay/2026/nwdesk/article/6865805_37004.html
 
+  - date: 2026-11-19
+    country: KR
+    exam: 2027학년도 대학수학능력시험
+    device: mixed
+    detected_by: 감독관 현장 적발. 111건 중 54건은 시험 중 위급재난문자가 울리면서 기기가 확인됨
+    summary: 교육부 발표 기준 전자기기 관련 부정행위 111건(4교시까지 98건, 5교시까지 13건 추가). 시험 중 실제로 쓴 것은 5건 — 스마트안경 1건(충남), 소형 카메라·무선이어폰 1건(경기), 스마트폰으로 문제 촬영 1건(서울), 화장실에서 스마트폰 사용 2건(서울·경기). 나머지 106건의 위반 유형은 미확정이며 소지만으로도 부정행위로 처리된다. 처분은 12월 11일 성적 통지 전에 결정 예정
+    sources:
+      - https://www.hankookilbo.com/news/article/A2026112011110005284
+      - https://www.fnnews.com/news/202611201113380231
+      - https://weekly.khan.co.kr/article/202611201134001/
+      - https://www.womennews.co.kr/news/articleView.html?idxno=284720
+
   - date: 2026
     country: TW
     exam: 대만 분과측험(Advanced Subjects Test)
@@ -64,6 +76,9 @@ incidents:
       - https://www.taiwannews.com.tw/en/news/6400781
 
 stats:
+  - text: 2027학년도 수능 전자기기 부정행위 111건, 이 중 시험 중 실사용 5건·스마트안경 1건 (교육부 2026-11-20 발표)
+    sources:
+      - https://www.hankookilbo.com/news/article/A2026112011110005284
   - text: 2026년 국가자격시험 스마트안경 부정행위 5건 (한국산업인력공단 자료)
     sources:
       - https://www.koreatimes.co.kr/southkorea/education/20261114/lawmaker-seeks-49-mil-budget-to-detect-ai-smart-glasses-cheating
