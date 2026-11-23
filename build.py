@@ -52,7 +52,9 @@ def page(path, title, desc, body, jsonld=None):
     doc = f"""<!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}">
-<link rel="canonical" href="{url}"><style>{CSS}</style>{ld}</head><body><main>
+<link rel="canonical" href="{url}">
+<meta name="naver-site-verification" content="d63c61747cc51e71a70f7a7589e2bfa66f4a5662" />
+<style>{CSS}</style>{ld}</head><body><main>
 <nav><a href="/">AI 안경 식별 DB</a><a href="/methods/">탐지 방법</a><a href="/ble-ids/">블루투스 제조사 ID</a><a href="/incidents/">적발 사례</a><a href="{REPO}">GitHub</a></nav>
 {body}
 <footer>공개 자료만 모은 데이터베이스입니다. 실기기 측정값은 없고, 모르는 값은 비워 두었습니다. 데이터 CC BY 4.0 · 코드 MIT ·
